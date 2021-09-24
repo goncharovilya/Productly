@@ -794,7 +794,15 @@ animate({
 			Element.prototype.msMatchesSelector;
 	}
 })();
+const headerElement = document.querySelector('.header');
 
+const callback = function (entries, observer) {
+    if (entries[0].isIntersecting) {
+        headerElement.classList.remove('_scroll');
+    } else {
+        headerElement.classList.add('_scroll');
+    }
+}
 //let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
 if (forms.length > 0) {
